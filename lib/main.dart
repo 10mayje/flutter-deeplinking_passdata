@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_pro/carousel_pro.dart';
+import 'package:flutter_application_1/components/login.dart';
 import 'components/carousal.dart';
+import 'components/horizontal.dart';
+import 'components/home.dart';
+import 'route.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,93 +13,54 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Art World',
+      initialRoute: '/',
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: new AppBar(
-          elevation: 0.0,
-          backgroundColor: Colors.black,
-          title: Text('Art World'),
-          actions: <Widget>[
-            new IconButton(
-                onPressed: null, icon: Icon(Icons.search, color: Colors.white)),
-            new IconButton(
-                onPressed: null,
-                icon: Icon(Icons.notifications, color: Colors.white))
-          ],
-        ),
-        drawer: new Drawer(
-          child: new ListView(children: <Widget>[
-            new UserAccountsDrawerHeader(
-              accountName: Text('tanmay'),
-              accountEmail: Text('tanmay@gmail.com'),
-              currentAccountPicture: GestureDetector(
-                child: new CircleAvatar(
-                  backgroundColor: Colors.pink,
-                  child: Icon(
-                    Icons.person,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              decoration: new BoxDecoration(color: Colors.black),
-            ),
-
-            // ----draw bar body
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Text('Home Page'),
-                leading: Icon(
-                  Icons.home,
-                  color: Colors.pink,
-                ),
-              ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Text('Categoris'),
-                leading: Icon(
-                  Icons.category,
-                  color: Colors.pink,
-                ),
-              ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Text('My Favorite'),
-                leading: Icon(
-                  Icons.favorite,
-                  color: Colors.pink,
-                ),
-              ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Text('My Account'),
-                leading: Icon(
-                  Icons.person,
-                  color: Colors.pink,
-                ),
-              ),
-            ),
-
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Text('About Us'),
-                leading: Icon(
-                  Icons.help,
-                  color: Colors.blue,
-                ),
-              ),
-            ),
-          ]),
-        ),
-        body: AwesomeCarousel(),
-      ),
+      theme: ThemeData(primaryColor: Colors.white),
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
+  }
+}
+
+class Firstpage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return home();
+
+    /*Scaffold(
+        appBar: AppBar(
+          title: Text('routing'),
+        ),
+        body: Center(
+          child: Column(
+            children: [
+              Text('hi there'),
+              IconButton(
+                icon: const Icon(Icons.person),
+                tooltip: 'add',
+                onPressed: () {
+                  Navigator.of(context)
+                      .pushNamed('/second', arguments: 'hello there');
+                },
+              ),
+            ],
+          ),
+        ));*/
+  }
+}
+
+class Secoundpage extends StatelessWidget {
+  final String data;
+  Secoundpage({Key? key, required this.data}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('routing'),
+        ),
+        body: Center(
+          child: Column(
+            children: [Text(data)],
+          ),
+        ));
   }
 }
