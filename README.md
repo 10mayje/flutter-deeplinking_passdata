@@ -1,15 +1,15 @@
-deep linking aplication this 
+deep linking aplication  
 
-## Getting Started
+
  
  
- ### open http://flutterbooksample.com/second/{your data} 
+ ### open http://flutterbooksample.com/second/{your-data} 
  in your android device 
   
   
   it will open the app and show your data 
   
-  to change the linke
+  to change the link
    go to 
 android\app\src\main\AndroidManifest.xml
   
